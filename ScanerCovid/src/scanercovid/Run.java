@@ -15,6 +15,7 @@ public class Run {
         
         ScanerCovid a = new ScanerCovid("Siam",5,10);
         
+        //run
         
         a.menu();
     }
