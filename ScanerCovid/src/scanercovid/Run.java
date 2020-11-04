@@ -18,5 +18,6 @@ public class Run {
         //run
         
         a.menu();
+        
     }
 }
