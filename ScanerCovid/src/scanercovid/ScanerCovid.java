@@ -21,13 +21,13 @@ public class ScanerCovid {  ////==============ตัวแปร=============
     int addName = 0; /////position of list all name for add name for person
     int numberNow = 0; //number of person in store now
     double temperature = 0; //temperature of person
-
+    int pointer = 0;
     
-    public ScanerCovid(String nameOfpalce, int numPerson, int num, int phone) {  ///==========constructure============
+    public ScanerCovid(String nameOfpalce, int numPerson, int num) {  ///==========constructure============
         this.nameOfplace = nameOfpalce;
         person = new String[numPerson];
         listAllName = new String[num];
-        this.numberOfTel = new String[phone];
+        this.numberOfTel = new String[num];
 
     }
 
@@ -82,6 +82,7 @@ public class ScanerCovid {  ////==============ตัวแปร=============
             }
 
             personadd();
+            pointer++;
 
             ///=================choose for loop or not =================== ////
             System.out.println("===พิม 0 เพื่อลงชื่อต่อ===");
@@ -149,9 +150,9 @@ public class ScanerCovid {  ////==============ตัวแปร=============
             temp.append("======================");
             temp.append("===อุณหภูมิเกินห้ามเข้า===");
             temp.append("======================");
-            temp.append("===กรุณาใส่รายชื่อต่อไป===");
             System.out.println(temp.toString());
-            personJoin();
+           
+            menu();
 
         }
 
@@ -186,12 +187,14 @@ public class ScanerCovid {  ////==============ตัวแปร=============
     }
 
     public void checkAllPerson() {
-
-        System.out.println(Arrays.toString(listAllName));
-
-        for (int i = 0; i <= listAllName.length; i++) {
+        if(pointer>0){
+          for (int i = 0; i < pointer; i++) {
             System.out.println("คนที่ " + (i + 1) + " " + listAllName[i] + "," + numberOfTel[i]);
-
+        }   
+        }else{
+            System.out.println("\n== ยังไม่มีประวัติการเข้า ==\n");
         }
+       
+        menu();
     }
 }
